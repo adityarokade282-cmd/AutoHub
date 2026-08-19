@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-white font-sans antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(255, 90, 31, 0.35);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0c0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262e;
+  border-radius: 999px;
+  border: 2px solid #0c0c0f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #34343e;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.08];
+  }
+  .glass-strong {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/[0.1];
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-ember-400 via-ember-500 to-crimson-500 bg-clip-text text-transparent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-ember-500 to-crimson-500 px-6 py-3 text-sm font-semibold text-white shadow-glow-sm transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-ember-400/50 hover:bg-white/[0.06] hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ember-400/60 px-6 py-3 text-sm font-semibold text-ember-400 transition-all duration-300 hover:bg-ember-400/10 hover:-translate-y-0.5;
+  }
+  .input-field {
+    @apply w-full rounded-xl bg-ink-800/60 border border-white/10 px-4 py-3 text-sm text-white placeholder:text-ink-300 focus:border-ember-400/60 focus:ring-2 focus:ring-ember-400/20 focus:outline-none transition-all duration-200;
+  }
+  .label-field {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-ink-200;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-ember-400/30 bg-ember-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-ember-400;
+  }
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-hover;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
